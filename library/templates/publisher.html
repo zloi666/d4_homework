@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+        <title>Publishers</title>
+    </head>
+
+    <body>
+        <h1>Publishers</h1>
+        {% for publisher in publishers %}
+        <ul><h2>{{ publisher.title }}</h2>
+            {% for book in publisher.books.all %}
+            <li>{{ book.title }}</li>
+            {% endfor %}
+        </ul>
+
+        {% endfor %}
+        
+        <script src="{% static "js/bootstrap.min.js" %}"></script>
+    </body>
+</html>
